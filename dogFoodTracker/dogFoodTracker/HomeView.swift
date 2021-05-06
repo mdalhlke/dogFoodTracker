@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct HomeView: View {
-//    @State var isChecked:Bool = false
-//    func toggle(){
-//        isChecked = !isChecked
-//    }
+
     let lightgray = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0)
     
+    @State private var showingAlert = false
+
     @State var items = [
         Item(title: "Breakfast", treat: 0, checked: false),
         Item(title: "Dinner", treat: 0, checked: false),
@@ -38,6 +37,7 @@ struct HomeView: View {
         NavigationView {
             ZStack {
                 lightgray.edgesIgnoringSafeArea(.vertical)
+                ScrollView{
                 VStack(alignment: .leading) {
                     Text(getDate())
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
@@ -48,28 +48,53 @@ struct HomeView: View {
                             .frame(width: .infinity, height: 200)
                             .overlay(
                                 VStack(alignment:.leading) {
-                                    Text("\(pet.name)")
-                                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                                        .padding(.horizontal)
+                                    HStack {
+                                        Text("\(pet.name)")
+                                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                                            .padding(.horizontal)
+                                        Spacer()
+                                        Button(action: {
+                                            showingAlert = true
+                                        }) {
+                                            Image(systemName: "minus")
+                                                .padding(.trailing)
+                                        }.alert(isPresented: $showingAlert) {
+                                            Alert(
+                                                title: Text("Are you sure you want to delete this?"),
+                                                primaryButton: .default(
+                                                    Text("Yes"),
+                                                    action: {
+                                                        if let index = pets.firstIndex(where: {$0.name == pet.name}) {
+                                                            pets.remove(at: index + 1)
+                                                        }
+                                                    }
+                                                ),
+                                                secondaryButton: .destructive(
+                                                    Text("Cancel")
+                                                    
+                                                )
+                                            )
+                                        }
+                                    }
                                     ForEach(items) { item in
                                         CardView(item: item)
                                     }
                                 }
                             ).padding(.bottom)
                     }
-                    Spacer()
                 }
                 .padding()
                 .navigationBarTitle("Home")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         NavigationLink(
-                            destination: AddPetView(),
+                            destination: AddPetView(pets: $pets),
                             label: {
                                 Image(systemName: "plus")
                             })
                     }
+                } 
                 }
             }
         }.accentColor(.orange)

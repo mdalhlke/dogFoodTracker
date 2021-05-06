@@ -51,7 +51,8 @@ struct ProfileView: View {
                                             Text("Edit Information")
                                                 .foregroundColor(.white)
                                                 .font(.headline)
-                                        })
+                                        }
+                                    )
                                 }
                             }
                         )
@@ -87,7 +88,7 @@ struct ProfileView: View {
                                         .frame(width: 300, height: nil, alignment: .topLeading)
                                         .padding(.vertical)
                                     NavigationLink(
-                                        destination: AddCareGiverView(),
+                                        destination: AddCareGiverView(careGivers: $caregivers),
                                         label: {
                                             Image(systemName: "plus")
                                         }
@@ -105,9 +106,12 @@ struct ProfileView: View {
                 .navigationTitle("Profile")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("Logout") {
-                            print("you logged out!")
-                        }
+                        NavigationLink(
+                            destination: LoginView(),
+                            label: {
+                                Text("Logout")
+                            }
+                        )
                     }
                 }
             }

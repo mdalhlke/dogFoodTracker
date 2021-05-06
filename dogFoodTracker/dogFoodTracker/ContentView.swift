@@ -11,6 +11,8 @@ struct ContentView: View {
     
     init() {
         UITabBar.appearance().barTintColor = UIColor.white
+        UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = .systemOrange
+
     }
     
     var body: some View {
