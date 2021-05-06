@@ -62,6 +62,15 @@ struct HomeView: View {
                 }
                 .padding()
                 .navigationBarTitle("Home")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        NavigationLink(
+                            destination: AddPetView(),
+                            label: {
+                                Image(systemName: "plus")
+                            })
+                    }
+                }
             }
         }.accentColor(.orange)
     }

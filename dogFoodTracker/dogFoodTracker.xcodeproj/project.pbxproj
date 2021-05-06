@@ -21,6 +21,10 @@
 		78B9AD712643AA5800AC1398 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B9AD702643AA5800AC1398 /* ProfileView.swift */; };
 		78B9AD732643CE8F00AC1398 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B9AD722643CE8F00AC1398 /* DashboardView.swift */; };
 		78B9AD772643E13400AC1398 /* gooddog-plain.regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78B9AD762643E13400AC1398 /* gooddog-plain.regular.ttf */; };
+		78B9AD79264456C000AC1398 /* AddPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B9AD78264456C000AC1398 /* AddPetView.swift */; };
+		78B9AD7B264460AF00AC1398 /* AddCareGiverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B9AD7A264460AF00AC1398 /* AddCareGiverView.swift */; };
+		78B9AD7D2644618D00AC1398 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B9AD7C2644618D00AC1398 /* EditProfileView.swift */; };
+		78B9AD7F2644675600AC1398 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B9AD7E2644675600AC1398 /* SignUpView.swift */; };
 		9974AAE08C1E85875D469375 /* Pods_dogFoodTracker_dogFoodTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB4CA00E03A4A4D363EF5C69 /* Pods_dogFoodTracker_dogFoodTrackerUITests.framework */; };
 		9F03F0BE981F2C10B171F267 /* Pods_dogFoodTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7854F1307D092CB235B19B /* Pods_dogFoodTracker.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +69,10 @@
 		78B9AD702643AA5800AC1398 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		78B9AD722643CE8F00AC1398 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		78B9AD762643E13400AC1398 /* gooddog-plain.regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gooddog-plain.regular.ttf"; sourceTree = "<group>"; };
+		78B9AD78264456C000AC1398 /* AddPetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetView.swift; sourceTree = "<group>"; };
+		78B9AD7A264460AF00AC1398 /* AddCareGiverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCareGiverView.swift; sourceTree = "<group>"; };
+		78B9AD7C2644618D00AC1398 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		78B9AD7E2644675600AC1398 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		8E127F8E7331A8F2202AA85D /* Pods-dogFoodTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dogFoodTracker.debug.xcconfig"; path = "Target Support Files/Pods-dogFoodTracker/Pods-dogFoodTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		9B7BB732A368B95329401217 /* Pods-dogFoodTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dogFoodTrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-dogFoodTrackerTests/Pods-dogFoodTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B229A5BDB482199DF2469023 /* Pods-dogFoodTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dogFoodTrackerTests.release.xcconfig"; path = "Target Support Files/Pods-dogFoodTrackerTests/Pods-dogFoodTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,9 +138,13 @@
 				7870CF4F264391330094273A /* dogFoodTrackerApp.swift */,
 				7896F3992643989200FCBCC4 /* AppDelegate.swift */,
 				78B9AD6E2643A2C300AC1398 /* LoginView.swift */,
+				78B9AD7E2644675600AC1398 /* SignUpView.swift */,
 				7870CF51264391330094273A /* ContentView.swift */,
 				7896F39B26439A2400FCBCC4 /* HomeView.swift */,
+				78B9AD78264456C000AC1398 /* AddPetView.swift */,
 				78B9AD702643AA5800AC1398 /* ProfileView.swift */,
+				78B9AD7C2644618D00AC1398 /* EditProfileView.swift */,
+				78B9AD7A264460AF00AC1398 /* AddCareGiverView.swift */,
 				78B9AD722643CE8F00AC1398 /* DashboardView.swift */,
 				7870CF53264391340094273A /* Assets.xcassets */,
 				7870CF58264391340094273A /* Info.plist */,
@@ -438,11 +450,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78B9AD7D2644618D00AC1398 /* EditProfileView.swift in Sources */,
+				78B9AD79264456C000AC1398 /* AddPetView.swift in Sources */,
 				7896F39A2643989200FCBCC4 /* AppDelegate.swift in Sources */,
 				78B9AD732643CE8F00AC1398 /* DashboardView.swift in Sources */,
 				7896F39C26439A2400FCBCC4 /* HomeView.swift in Sources */,
+				78B9AD7F2644675600AC1398 /* SignUpView.swift in Sources */,
 				7870CF52264391330094273A /* ContentView.swift in Sources */,
 				78B9AD712643AA5800AC1398 /* ProfileView.swift in Sources */,
+				78B9AD7B264460AF00AC1398 /* AddCareGiverView.swift in Sources */,
 				78B9AD6F2643A2C300AC1398 /* LoginView.swift in Sources */,
 				7870CF50264391330094273A /* dogFoodTrackerApp.swift in Sources */,
 			);

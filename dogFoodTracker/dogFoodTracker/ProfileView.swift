@@ -12,9 +12,16 @@ struct ProfileView: View {
     //@Binding var pets: Pet
     //@Binding var items: Item
     
+    @State var name: String = "Maya"
+    
     @State var pets = [
         Pet(name: "Koda"),
         Pet(name: "Teddy")
+    ]
+    
+    @State var caregivers = [
+        CareGiver(name: "Doug"),
+        CareGiver(name: "Mily")
     ]
     
     var body: some View {
@@ -32,18 +39,19 @@ struct ProfileView: View {
                                     .frame(width: 100.0, height: 100.0)
                                     .padding()
                                 VStack(alignment:.leading) {
-                                    Text("Maya Dahlke")
+                                    Text("\(name)")
                                         .font(.title)
                                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                    Button(action: {
-                                        print("edit clicked")
-                                    }, label: {
-                                        Image(systemName: "square.and.pencil")
-                                            .foregroundColor(.white)
-                                        Text("Edit Information")
-                                            .foregroundColor(.white)
-                                            .font(.headline)
-                                    })
+                                        .padding(.bottom, 5)
+                                    NavigationLink(
+                                        destination: EditProfileView(),
+                                        label: {
+                                            Image(systemName: "square.and.pencil")
+                                                .foregroundColor(.white)
+                                            Text("Edit Information")
+                                                .foregroundColor(.white)
+                                                .font(.headline)
+                                        })
                                 }
                             }
                         )
@@ -51,42 +59,65 @@ struct ProfileView: View {
                         .padding(.bottom, 20)
                     RoundedRectangle(cornerRadius: 25)
                         .fill(Color.white)
-                        .frame(width: .infinity)
+                        .frame(width: .infinity, height: nil)
                         .overlay(
                             VStack(alignment:.leading) {
                                 Text("Pets")
                                     .font(.largeTitle)
                                     .fontWeight(.bold)
-                                    .frame(width: 370, alignment: .topLeading)
-                                    .padding(.top, 30)
+                                    .frame(width: 370, height: nil, alignment: .topLeading)
+                                    .padding(.vertical)
                                 ForEach(pets) { pet in
-                                    Text("\u{2022} \(pet.name)")
+                                    Text("\(pet.name)")
                                         .font(.title2)
-//                                    if (items.title == "Breakfast" || items.checked) {
-//                                    Text("\u{2022} Fed in the Morning? Yes")
-//                                        .font(.title2)
-//                                    } else {
-//                                        Text("\u{2022} Fed in the Morning? No")
-//                                            .font(.title2)
-//                                    }
                                 }
                                 Spacer()
                             }.padding(.leading, 20)
                         ).padding()
                     
-                    Spacer()
+                    RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                        .fill(Color.white)
+                        .frame(width: .infinity, height: nil)
+                        .overlay(
+                            VStack(alignment:.leading) {
+                                HStack {
+                                    Text("Other Caregivers")
+                                        .font(.largeTitle)
+                                        .fontWeight(.bold)
+                                        .frame(width: 300, height: nil, alignment: .topLeading)
+                                        .padding(.vertical)
+                                    NavigationLink(
+                                        destination: AddCareGiverView(),
+                                        label: {
+                                            Image(systemName: "plus")
+                                        }
+                                    )
+                                    Spacer()
+                                }
+                                ForEach(caregivers) { caregiver in
+                                    Text("\(caregiver.name)")
+                                        .font(.title2)
+                                }
+                                Spacer()
+                            }.padding(.leading, 20)
+                        ).padding()
                 }
                 .navigationTitle("Profile")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button("Logout") {
-                            print("Help tapped!")
+                            print("you logged out!")
                         }
                     }
                 }
             }
         }.accentColor(.orange)
     }
+}
+
+struct CareGiver: Identifiable {
+    var id = UUID()
+    var name: String
 }
 
 struct ProfileView_Previews: PreviewProvider {
