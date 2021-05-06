@@ -1,0 +1,775 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		73BFB20D66835B6A949712F1 /* Pods_dogFoodTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CACB5301AC88EC526E11992 /* Pods_dogFoodTrackerTests.framework */; };
+		7870CF50264391330094273A /* dogFoodTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7870CF4F264391330094273A /* dogFoodTrackerApp.swift */; };
+		7870CF52264391330094273A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7870CF51264391330094273A /* ContentView.swift */; };
+		7870CF54264391340094273A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7870CF53264391340094273A /* Assets.xcassets */; };
+		7870CF57264391340094273A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7870CF56264391340094273A /* Preview Assets.xcassets */; };
+		7870CF62264391340094273A /* dogFoodTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7870CF61264391340094273A /* dogFoodTrackerTests.swift */; };
+		7870CF6D264391340094273A /* dogFoodTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7870CF6C264391340094273A /* dogFoodTrackerUITests.swift */; };
+		7870CF7C264393840094273A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7870CF7B264393840094273A /* GoogleService-Info.plist */; };
+		7896F39A2643989200FCBCC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7896F3992643989200FCBCC4 /* AppDelegate.swift */; };
+		7896F39C26439A2400FCBCC4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7896F39B26439A2400FCBCC4 /* HomeView.swift */; };
+		78B9AD6F2643A2C300AC1398 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B9AD6E2643A2C300AC1398 /* LoginView.swift */; };
+		78B9AD712643AA5800AC1398 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B9AD702643AA5800AC1398 /* ProfileView.swift */; };
+		78B9AD732643CE8F00AC1398 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B9AD722643CE8F00AC1398 /* DashboardView.swift */; };
+		78B9AD772643E13400AC1398 /* gooddog-plain.regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78B9AD762643E13400AC1398 /* gooddog-plain.regular.ttf */; };
+		9974AAE08C1E85875D469375 /* Pods_dogFoodTracker_dogFoodTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB4CA00E03A4A4D363EF5C69 /* Pods_dogFoodTracker_dogFoodTrackerUITests.framework */; };
+		9F03F0BE981F2C10B171F267 /* Pods_dogFoodTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7854F1307D092CB235B19B /* Pods_dogFoodTracker.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7870CF5E264391340094273A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7870CF44264391330094273A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7870CF4B264391330094273A;
+			remoteInfo = dogFoodTracker;
+		};
+		7870CF69264391340094273A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7870CF44264391330094273A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7870CF4B264391330094273A;
+			remoteInfo = dogFoodTracker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4C5A8825ED0C80473435BF20 /* Pods-dogFoodTracker-dogFoodTrackerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dogFoodTracker-dogFoodTrackerUITests.debug.xcconfig"; path = "Target Support Files/Pods-dogFoodTracker-dogFoodTrackerUITests/Pods-dogFoodTracker-dogFoodTrackerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4CACB5301AC88EC526E11992 /* Pods_dogFoodTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dogFoodTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		564CF2166DA98CAD29E232A0 /* Pods-dogFoodTracker-dogFoodTrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dogFoodTracker-dogFoodTrackerUITests.release.xcconfig"; path = "Target Support Files/Pods-dogFoodTracker-dogFoodTrackerUITests/Pods-dogFoodTracker-dogFoodTrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7870CF4C264391330094273A /* dogFoodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dogFoodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7870CF4F264391330094273A /* dogFoodTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dogFoodTrackerApp.swift; sourceTree = "<group>"; };
+		7870CF51264391330094273A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7870CF53264391340094273A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7870CF56264391340094273A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7870CF58264391340094273A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7870CF5D264391340094273A /* dogFoodTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dogFoodTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7870CF61264391340094273A /* dogFoodTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dogFoodTrackerTests.swift; sourceTree = "<group>"; };
+		7870CF63264391340094273A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7870CF68264391340094273A /* dogFoodTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dogFoodTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7870CF6C264391340094273A /* dogFoodTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dogFoodTrackerUITests.swift; sourceTree = "<group>"; };
+		7870CF6E264391340094273A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7870CF7B264393840094273A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7896F3992643989200FCBCC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7896F39B26439A2400FCBCC4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		78B9AD6E2643A2C300AC1398 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		78B9AD702643AA5800AC1398 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		78B9AD722643CE8F00AC1398 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		78B9AD762643E13400AC1398 /* gooddog-plain.regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gooddog-plain.regular.ttf"; sourceTree = "<group>"; };
+		8E127F8E7331A8F2202AA85D /* Pods-dogFoodTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dogFoodTracker.debug.xcconfig"; path = "Target Support Files/Pods-dogFoodTracker/Pods-dogFoodTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		9B7BB732A368B95329401217 /* Pods-dogFoodTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dogFoodTrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-dogFoodTrackerTests/Pods-dogFoodTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B229A5BDB482199DF2469023 /* Pods-dogFoodTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dogFoodTrackerTests.release.xcconfig"; path = "Target Support Files/Pods-dogFoodTrackerTests/Pods-dogFoodTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
+		BB4CA00E03A4A4D363EF5C69 /* Pods_dogFoodTracker_dogFoodTrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dogFoodTracker_dogFoodTrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5F885C99DBC3DA3C234C050 /* Pods-dogFoodTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dogFoodTracker.release.xcconfig"; path = "Target Support Files/Pods-dogFoodTracker/Pods-dogFoodTracker.release.xcconfig"; sourceTree = "<group>"; };
+		CE7854F1307D092CB235B19B /* Pods_dogFoodTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dogFoodTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7870CF49264391330094273A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F03F0BE981F2C10B171F267 /* Pods_dogFoodTracker.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7870CF5A264391340094273A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73BFB20D66835B6A949712F1 /* Pods_dogFoodTrackerTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7870CF65264391340094273A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9974AAE08C1E85875D469375 /* Pods_dogFoodTracker_dogFoodTrackerUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7870CF43264391330094273A = {
+			isa = PBXGroup;
+			children = (
+				7870CF4E264391330094273A /* dogFoodTracker */,
+				7870CF60264391340094273A /* dogFoodTrackerTests */,
+				7870CF6B264391340094273A /* dogFoodTrackerUITests */,
+				78B9AD742643DC4C00AC1398 /* Fonts */,
+				7870CF4D264391330094273A /* Products */,
+				C178CEAA49DA1C962B370895 /* Pods */,
+				BDC5A2342000EB323EDCFC22 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7870CF4D264391330094273A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7870CF4C264391330094273A /* dogFoodTracker.app */,
+				7870CF5D264391340094273A /* dogFoodTrackerTests.xctest */,
+				7870CF68264391340094273A /* dogFoodTrackerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7870CF4E264391330094273A /* dogFoodTracker */ = {
+			isa = PBXGroup;
+			children = (
+				7870CF4F264391330094273A /* dogFoodTrackerApp.swift */,
+				7896F3992643989200FCBCC4 /* AppDelegate.swift */,
+				78B9AD6E2643A2C300AC1398 /* LoginView.swift */,
+				7870CF51264391330094273A /* ContentView.swift */,
+				7896F39B26439A2400FCBCC4 /* HomeView.swift */,
+				78B9AD702643AA5800AC1398 /* ProfileView.swift */,
+				78B9AD722643CE8F00AC1398 /* DashboardView.swift */,
+				7870CF53264391340094273A /* Assets.xcassets */,
+				7870CF58264391340094273A /* Info.plist */,
+				7870CF7B264393840094273A /* GoogleService-Info.plist */,
+				7870CF55264391340094273A /* Preview Content */,
+			);
+			path = dogFoodTracker;
+			sourceTree = "<group>";
+		};
+		7870CF55264391340094273A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				7870CF56264391340094273A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7870CF60264391340094273A /* dogFoodTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				7870CF61264391340094273A /* dogFoodTrackerTests.swift */,
+				7870CF63264391340094273A /* Info.plist */,
+			);
+			path = dogFoodTrackerTests;
+			sourceTree = "<group>";
+		};
+		7870CF6B264391340094273A /* dogFoodTrackerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7870CF6C264391340094273A /* dogFoodTrackerUITests.swift */,
+				7870CF6E264391340094273A /* Info.plist */,
+			);
+			path = dogFoodTrackerUITests;
+			sourceTree = "<group>";
+		};
+		78B9AD742643DC4C00AC1398 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				78B9AD762643E13400AC1398 /* gooddog-plain.regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		BDC5A2342000EB323EDCFC22 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE7854F1307D092CB235B19B /* Pods_dogFoodTracker.framework */,
+				BB4CA00E03A4A4D363EF5C69 /* Pods_dogFoodTracker_dogFoodTrackerUITests.framework */,
+				4CACB5301AC88EC526E11992 /* Pods_dogFoodTrackerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C178CEAA49DA1C962B370895 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8E127F8E7331A8F2202AA85D /* Pods-dogFoodTracker.debug.xcconfig */,
+				C5F885C99DBC3DA3C234C050 /* Pods-dogFoodTracker.release.xcconfig */,
+				4C5A8825ED0C80473435BF20 /* Pods-dogFoodTracker-dogFoodTrackerUITests.debug.xcconfig */,
+				564CF2166DA98CAD29E232A0 /* Pods-dogFoodTracker-dogFoodTrackerUITests.release.xcconfig */,
+				9B7BB732A368B95329401217 /* Pods-dogFoodTrackerTests.debug.xcconfig */,
+				B229A5BDB482199DF2469023 /* Pods-dogFoodTrackerTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7870CF4B264391330094273A /* dogFoodTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7870CF71264391340094273A /* Build configuration list for PBXNativeTarget "dogFoodTracker" */;
+			buildPhases = (
+				757F21459F21E3D3BF929F10 /* [CP] Check Pods Manifest.lock */,
+				7870CF48264391330094273A /* Sources */,
+				7870CF49264391330094273A /* Frameworks */,
+				7870CF4A264391330094273A /* Resources */,
+				354E33710E3F546CF2103115 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dogFoodTracker;
+			productName = dogFoodTracker;
+			productReference = 7870CF4C264391330094273A /* dogFoodTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7870CF5C264391340094273A /* dogFoodTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7870CF74264391340094273A /* Build configuration list for PBXNativeTarget "dogFoodTrackerTests" */;
+			buildPhases = (
+				66D1FB2C7C2AC564369B6EB8 /* [CP] Check Pods Manifest.lock */,
+				7870CF59264391340094273A /* Sources */,
+				7870CF5A264391340094273A /* Frameworks */,
+				7870CF5B264391340094273A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7870CF5F264391340094273A /* PBXTargetDependency */,
+			);
+			name = dogFoodTrackerTests;
+			productName = dogFoodTrackerTests;
+			productReference = 7870CF5D264391340094273A /* dogFoodTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7870CF67264391340094273A /* dogFoodTrackerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7870CF77264391340094273A /* Build configuration list for PBXNativeTarget "dogFoodTrackerUITests" */;
+			buildPhases = (
+				43BB38384CCD18C1DAFE34BE /* [CP] Check Pods Manifest.lock */,
+				7870CF64264391340094273A /* Sources */,
+				7870CF65264391340094273A /* Frameworks */,
+				7870CF66264391340094273A /* Resources */,
+				0736E564E287AFEDBD654E12 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7870CF6A264391340094273A /* PBXTargetDependency */,
+			);
+			name = dogFoodTrackerUITests;
+			productName = dogFoodTrackerUITests;
+			productReference = 7870CF68264391340094273A /* dogFoodTrackerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7870CF44264391330094273A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					7870CF4B264391330094273A = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					7870CF5C264391340094273A = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 7870CF4B264391330094273A;
+					};
+					7870CF67264391340094273A = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 7870CF4B264391330094273A;
+					};
+				};
+			};
+			buildConfigurationList = 7870CF47264391330094273A /* Build configuration list for PBXProject "dogFoodTracker" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7870CF43264391330094273A;
+			productRefGroup = 7870CF4D264391330094273A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7870CF4B264391330094273A /* dogFoodTracker */,
+				7870CF5C264391340094273A /* dogFoodTrackerTests */,
+				7870CF67264391340094273A /* dogFoodTrackerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7870CF4A264391330094273A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7870CF57264391340094273A /* Preview Assets.xcassets in Resources */,
+				78B9AD772643E13400AC1398 /* gooddog-plain.regular.ttf in Resources */,
+				7870CF54264391340094273A /* Assets.xcassets in Resources */,
+				7870CF7C264393840094273A /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7870CF5B264391340094273A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7870CF66264391340094273A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0736E564E287AFEDBD654E12 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dogFoodTracker-dogFoodTrackerUITests/Pods-dogFoodTracker-dogFoodTrackerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dogFoodTracker-dogFoodTrackerUITests/Pods-dogFoodTracker-dogFoodTrackerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dogFoodTracker-dogFoodTrackerUITests/Pods-dogFoodTracker-dogFoodTrackerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		354E33710E3F546CF2103115 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dogFoodTracker/Pods-dogFoodTracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dogFoodTracker/Pods-dogFoodTracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dogFoodTracker/Pods-dogFoodTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		43BB38384CCD18C1DAFE34BE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-dogFoodTracker-dogFoodTrackerUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66D1FB2C7C2AC564369B6EB8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-dogFoodTrackerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		757F21459F21E3D3BF929F10 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-dogFoodTracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7870CF48264391330094273A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7896F39A2643989200FCBCC4 /* AppDelegate.swift in Sources */,
+				78B9AD732643CE8F00AC1398 /* DashboardView.swift in Sources */,
+				7896F39C26439A2400FCBCC4 /* HomeView.swift in Sources */,
+				7870CF52264391330094273A /* ContentView.swift in Sources */,
+				78B9AD712643AA5800AC1398 /* ProfileView.swift in Sources */,
+				78B9AD6F2643A2C300AC1398 /* LoginView.swift in Sources */,
+				7870CF50264391330094273A /* dogFoodTrackerApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7870CF59264391340094273A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7870CF62264391340094273A /* dogFoodTrackerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7870CF64264391340094273A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7870CF6D264391340094273A /* dogFoodTrackerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7870CF5F264391340094273A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7870CF4B264391330094273A /* dogFoodTracker */;
+			targetProxy = 7870CF5E264391340094273A /* PBXContainerItemProxy */;
+		};
+		7870CF6A264391340094273A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7870CF4B264391330094273A /* dogFoodTracker */;
+			targetProxy = 7870CF69264391340094273A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7870CF6F264391340094273A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7870CF70264391340094273A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7870CF72264391340094273A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E127F8E7331A8F2202AA85D /* Pods-dogFoodTracker.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"dogFoodTracker/Preview Content\"";
+				DEVELOPMENT_TEAM = 29N3V59Q5S;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = dogFoodTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = doggie.dogFoodTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7870CF73264391340094273A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5F885C99DBC3DA3C234C050 /* Pods-dogFoodTracker.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"dogFoodTracker/Preview Content\"";
+				DEVELOPMENT_TEAM = 29N3V59Q5S;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = dogFoodTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = doggie.dogFoodTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7870CF75264391340094273A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B7BB732A368B95329401217 /* Pods-dogFoodTrackerTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 29N3V59Q5S;
+				INFOPLIST_FILE = dogFoodTrackerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = doggie.dogFoodTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dogFoodTracker.app/dogFoodTracker";
+			};
+			name = Debug;
+		};
+		7870CF76264391340094273A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B229A5BDB482199DF2469023 /* Pods-dogFoodTrackerTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 29N3V59Q5S;
+				INFOPLIST_FILE = dogFoodTrackerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = doggie.dogFoodTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dogFoodTracker.app/dogFoodTracker";
+			};
+			name = Release;
+		};
+		7870CF78264391340094273A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C5A8825ED0C80473435BF20 /* Pods-dogFoodTracker-dogFoodTrackerUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 29N3V59Q5S;
+				INFOPLIST_FILE = dogFoodTrackerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = doggie.dogFoodTrackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = dogFoodTracker;
+			};
+			name = Debug;
+		};
+		7870CF79264391340094273A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 564CF2166DA98CAD29E232A0 /* Pods-dogFoodTracker-dogFoodTrackerUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 29N3V59Q5S;
+				INFOPLIST_FILE = dogFoodTrackerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = doggie.dogFoodTrackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = dogFoodTracker;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7870CF47264391330094273A /* Build configuration list for PBXProject "dogFoodTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7870CF6F264391340094273A /* Debug */,
+				7870CF70264391340094273A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7870CF71264391340094273A /* Build configuration list for PBXNativeTarget "dogFoodTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7870CF72264391340094273A /* Debug */,
+				7870CF73264391340094273A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7870CF74264391340094273A /* Build configuration list for PBXNativeTarget "dogFoodTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7870CF75264391340094273A /* Debug */,
+				7870CF76264391340094273A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7870CF77264391340094273A /* Build configuration list for PBXNativeTarget "dogFoodTrackerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7870CF78264391340094273A /* Debug */,
+				7870CF79264391340094273A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7870CF44264391330094273A /* Project object */;
+}
