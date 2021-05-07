@@ -61,33 +61,7 @@ struct LoginView: View {
                     }
                     .signInWithAppleButtonStyle(.black)
                     .frame(height: 55)
-                    .clipShape(Capsule())
-//                    Button(action: {
-//                        print("button pressed")
-//                    }) {
-//                        HStack {
-//                            //Image("iconfinder_09-google_843776")
-//                            Text("Google")
-//                                .foregroundColor(.white)
-//                                .font(.title2)
-//                                .padding(15)
-//                                .frame(maxWidth: .infinity)
-//                                .background(google)
-//                                .cornerRadius(50.0)
-//                        }
-//                    }
-//                    Button(action: {
-//                        print("button pressed")
-//                    }) {
-//                        //Image("iconfinder_social-facebook_216078")
-//                        Text("Apple")
-//                            .foregroundColor(.white)
-//                            .font(.title2)
-//                            .padding(15)
-//                            .frame(maxWidth: .infinity)
-//                            .background(apple)
-//                            .cornerRadius(50.0)
-//                    }
+                    //.clipShape(Capsule())
                 }
                 Text("OR").padding()
                 TextField("Email", text: $user)
@@ -181,9 +155,6 @@ struct GoogleSignView: UIViewRepresentable {
     func makeUIView(context: UIViewRepresentableContext<GoogleSignView>) -> GIDSignInButton {
         let button = GIDSignInButton()
         button.colorScheme = .dark
-        button.style = .wide
-       // button.layer.cornerRadius = 50.0
-        //button.layer.masksToBounds = true
         GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.last?.rootViewController
         return button
     }
