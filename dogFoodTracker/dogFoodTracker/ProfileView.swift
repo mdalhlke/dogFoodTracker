@@ -6,19 +6,19 @@
 //
 
 import SwiftUI
+import Firebase
+import GoogleSignIn
 
 struct ProfileView: View {
     
     //@Binding var pets: Pet
     //@Binding var items: Item
-    
+    @AppStorage("log_status") var log_status = false  
     @State var name: String = "Maya"
-    
     @State var pets = [
         Pet(name: "Koda"),
         Pet(name: "Teddy")
     ]
-    
     @State var caregivers = [
         CareGiver(name: "Doug"),
         CareGiver(name: "Mily")
@@ -106,12 +106,14 @@ struct ProfileView: View {
                 .navigationTitle("Profile")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink(
-                            destination: LoginView(),
-                            label: {
-                                Text("Logout")
-                            }
-                        )
+                        Button(action: {
+                            try! Auth.auth().signOut()
+                            GIDSignIn.sharedInstance()?.signOut()
+                            UserDefaults.standard.set(false, forKey: "status")
+                            NotificationCenter.default.post(name: NSNotification.Name("statusChange"), object: nil)
+                        }, label: {
+                            Text("Logout")
+                        })
                     }
                 }
             }

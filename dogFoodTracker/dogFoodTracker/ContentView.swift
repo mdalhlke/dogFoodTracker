@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State var status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
+    @AppStorage("log_status") var log_status = false
+    
     init() {
         UITabBar.appearance().barTintColor = UIColor.white
         UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = .systemOrange
@@ -16,21 +19,33 @@ struct ContentView: View {
     }
     
     var body: some View {
-        //LoginView()
-        TabView {
-            HomeView()
-                .tabItem {
-                    Label("Home", systemImage: "house")
-                }
-            DashboardView()
-                .tabItem {
-                    Label("Dashbord", systemImage: "list.dash")
-                }
-            ProfileView()
-                .tabItem {
-                    Label("Profile", systemImage: "person.circle")
-                }
-        }.accentColor(.orange)
+        VStack {
+            if status || log_status {
+                TabView {
+                    HomeView()
+                        .tabItem {
+                            Label("Home", systemImage: "house")
+                        }
+        //            DashboardView()
+        //                .tabItem {
+        //                    Label("Dashbord", systemImage: "list.dash")
+        //                }
+                    ProfileView()
+                        .tabItem {
+                            Label("Profile", systemImage: "person.circle")
+                        }
+                }.accentColor(.orange)
+            } else {
+                LoginView()
+            }
+        }
+        .animation(.spring())
+        .onAppear {
+            NotificationCenter.default.addObserver(forName: NSNotification.Name("statusChange"), object: nil, queue: .main) { (_) in
+                let status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
+                self.status = status
+            }
+        }
     }
 }
 

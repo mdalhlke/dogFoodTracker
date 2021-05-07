@@ -6,28 +6,29 @@
 //
 
 import SwiftUI
+import Firebase
+import GoogleSignIn
 
 struct SignUpView: View {
     
-    @State var name: String = ""
-    @State var email: String = ""
+    @State var user: String = ""
+    //@State var email: String = ""
     @State var password: String = ""
     @State private var showPassword: Bool = false
+    @State var alert = false
+    @State var msg = ""
+    @Binding var show: Bool
     
     var body: some View {
         ZStack {
             lightgray.edgesIgnoringSafeArea(.vertical)
             VStack {
-                TextField("Name", text: $name)
+                TextField("Email", text: $user)
                     .padding()
                     .background(Color.white)
                     .cornerRadius(5.0)
                     .padding(.bottom, 20)
-                TextField("Email", text: $email)
-                    .padding()
-                    .background(Color.white)
-                    .cornerRadius(5.0)
-                    .padding(.bottom, 20)
+                    .keyboardType(.emailAddress)
                 HStack {
                     if (showPassword) {
                         TextField("Password", text: $password)
@@ -55,7 +56,16 @@ struct SignUpView: View {
                     .accentColor(.orange)
                 }
                 Button(action: {
-                    print("button pressed")
+                    signUpWithEmail(email: user, password: password) { (verified, status) in
+                        if (!verified) {
+                            self.msg = status
+                            alert.toggle()
+                        } else {
+                            UserDefaults.standard.set(true, forKey: "status")
+                            self.show.toggle()
+                            NotificationCenter.default.post(name: NSNotification.Name("statusChange"), object: nil)
+                        }
+                    }
                 }) {
                     Text("Sign Up")
                         .foregroundColor(.white)
@@ -65,13 +75,31 @@ struct SignUpView: View {
                         .background(Color.orange)
                         .cornerRadius(50.0)
                 }
-            }.padding()
+            }
+            .padding()
+            .alert(isPresented: $alert) {
+                Alert(title: Text("Error"),
+                      message: Text(msg),
+                      dismissButton: .default(Text("Okay"))
+                )
+            }
         }.navigationBarTitle("Sign Up")
     }
 }
 
-struct SignUpView_Previews: PreviewProvider {
-    static var previews: some View {
-        SignUpView()
+func signUpWithEmail(email: String, password: String, completion: @escaping (Bool, String) -> Void) {
+    Auth.auth().createUser(withEmail: email, password: password) { (res, err) in
+        if err != nil {
+            completion(false, (err?.localizedDescription)!)
+            return
+        }
+        completion(true, (res?.user.email)!)
     }
 }
+
+
+//struct SignUpView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SignUpView()
+//    }
+//}
