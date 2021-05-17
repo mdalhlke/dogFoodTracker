@@ -13,7 +13,13 @@ struct ProfileView: View {
     
     //@Binding var pets: Pet
     //@Binding var items: Item
-    @AppStorage("log_status") var log_status = false  
+    @AppStorage("log_status") var log_status = false
+    
+    @State var showActionSheet = false
+    @State var showImagePicker = false
+    @State var sourceType: UIImagePickerController.SourceType = .camera
+    @State var image: UIImage?
+    
     @State var name: String = "Maya"
     @State var pets = [
         Pet(name: "Koda"),
@@ -31,20 +37,42 @@ struct ProfileView: View {
                 VStack {
                     VStack {
                         ZStack(alignment: .bottomTrailing) {
-                            Image(systemName: "person.circle.fill")
-                                .resizable()
-                                .frame(width: 100.0, height: 100.0)
-                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                            if image != nil {
+                                Image(uiImage: image!)
+                                    .resizable()
+                                    .frame(width: 100.0, height: 100.0)
+                                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                            } else {
+                                Image(systemName: "person.circle.fill")
+                                    .resizable()
+                                    .frame(width: 100.0, height: 100.0)
+                                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                            }
                             Button(action: {
-                                print("plus btn")
-                            }, label: {
+                                self.showActionSheet = true
+                            }) {
                                 Image(systemName: "plus")
                                     .foregroundColor(.white)
                                     .frame(width: 25, height: 25)
                                     .background(Color.orange)
                                     .clipShape(Circle())
                                     .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                            })
+                            }.actionSheet(isPresented: $showActionSheet) {
+                                ActionSheet(title: Text("Add a picture"), message: nil, buttons: [
+                                    .default(Text("Camera"), action: {
+                                        self.showImagePicker = true
+                                        self.sourceType = .camera
+                                    }),
+                                    .default(Text("Photo Library"), action: {
+                                        self.showImagePicker = true
+                                        self.sourceType = .photoLibrary
+                                    }),
+                                    .cancel()
+                                ])
+                            }
+                            .sheet(isPresented: $showImagePicker) {
+                                imagePicker(image: self.$image, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
+                            }
                         }
                         Text("\(name)")
                             .font(.title)
