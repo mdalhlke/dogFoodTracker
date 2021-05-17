@@ -8,6 +8,7 @@
 import SwiftUI
 import Firebase
 import GoogleSignIn
+import FirebaseFirestoreSwift
 
 struct ProfileView: View {
     
@@ -21,14 +22,19 @@ struct ProfileView: View {
     @State var image: UIImage?
     
     @State var name: String = "Maya"
-    @State var pets = [
-        Pet(name: "Koda"),
-        Pet(name: "Teddy")
-    ]
-    @State var caregivers = [
-        CareGiver(name: "Doug"),
-        CareGiver(name: "Mily")
-    ]
+//    @State var pets = [
+//        Pet(name: "Koda"),
+//        Pet(name: "Teddy")
+//    ]
+    @ObservedObject private var petViewModel = PetsViewModel()
+//    @State var caregivers = [
+//        CareGiver(name: "Doug", email: "dougdahlke@yahoo.com"),
+//        CareGiver(name: "Mily", email: "milydahlke@yahoo.com")
+//    ]
+    @ObservedObject private var caregiverViewModel = CaregiversViewModel()
+    
+    @State private var presentAddNewPetScreen = false
+
     
     var body: some View {
         NavigationView {
@@ -99,7 +105,7 @@ struct ProfileView: View {
                                     .fontWeight(.bold)
                                     .frame(width: 370, height: nil, alignment: .topLeading)
                                     .padding(.vertical)
-                                ForEach(pets) { pet in
+                                ForEach(petViewModel.pets) { pet in
                                     Text("\(pet.name)")
                                         .font(.title2)
                                 }
@@ -118,15 +124,18 @@ struct ProfileView: View {
                                         .fontWeight(.bold)
                                         .frame(width: 300, height: nil, alignment: .topLeading)
                                         .padding(.vertical)
-                                    NavigationLink(
-                                        destination: AddCareGiverView(careGivers: $caregivers),
-                                        label: {
-                                            Image(systemName: "plus")
-                                        }
-                                    )
+//                                    NavigationLink(
+//                                        destination: AddCareGiverView(),
+//                                        label: {
+//                                            Image(systemName: "plus")
+//                                        }
+//                                    )
+                                    Button(action: {presentAddNewPetScreen.toggle()}, label: {
+                                        Image(systemName: "plus")
+                                    })
                                     Spacer()
                                 }
-                                ForEach(caregivers) { caregiver in
+                                ForEach(caregiverViewModel.caregivers) { caregiver in
                                     Text("\(caregiver.name)")
                                         .font(.title2)
                                 }
@@ -147,18 +156,30 @@ struct ProfileView: View {
                         })
                     }
                 }
+                .sheet(isPresented: $presentAddNewPetScreen) {
+                    AddCareGiverView()
+                }
+                .onAppear() {
+                    self.caregiverViewModel.fetchData()
+                    self.petViewModel.fetchData()
+                }
             }
         }.accentColor(.orange)
     }
 }
 
-struct CareGiver: Identifiable {
-    var id = UUID()
+struct CareGiver: Identifiable, Codable {
+    @DocumentID var id: String? = UUID().uuidString
     var name: String
-}
-
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
+    var email: String
+    enum CodingKeys: String, CodingKey {
+        case name
+        case email
     }
 }
+
+//struct ProfileView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProfileView()
+//    }
+//}

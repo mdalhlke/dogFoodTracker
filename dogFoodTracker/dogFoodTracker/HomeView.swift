@@ -6,6 +6,7 @@
 // https://www.youtube.com/watch?v=EWcAPyhf2FE
 
 import SwiftUI
+import FirebaseFirestoreSwift
 
 struct HomeView: View {
 
@@ -18,8 +19,6 @@ struct HomeView: View {
 //    }
     
     @State private var showingAlert = false
-    @State private var num = [Int]()
-    @State private var curr = 1
 
     @State var items = [
         Item(title: "Breakfast", treat: 0, checked: false),
@@ -27,10 +26,16 @@ struct HomeView: View {
         Item(title: "Treats", treat: 0, checked: false)
     ]
     
-    @State var pets = [
-        Pet(name: "Koda"),
-        Pet(name: "Teddy")
-    ]
+//    @State var pets = [
+//        Pet(name: "Koda"),
+//        Pet(name: "Teddy")
+//    ]
+    
+    @ObservedObject private var petViewModel = PetsViewModel()
+    
+    @State private var presentAddNewPetScreen = false
+    
+    @StateObject var viewModel = PetViewModel()
     
     func getDate() -> String {
         let now = Date()
@@ -42,7 +47,8 @@ struct HomeView: View {
     }
     
     func removeItems(at offsets: IndexSet) {
-        pets.remove(atOffsets: offsets)
+        petViewModel.pets.remove(atOffsets: offsets)
+        //viewModel.delete()
     }
     
     var body: some View {
@@ -54,13 +60,13 @@ struct HomeView: View {
                         Text(getDate())
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                             .font(.title)
-                        if pets.isEmpty {
+                        if petViewModel.pets.isEmpty {
                             Text("Add a pet by clicking the + button in the top right corner.")
                                 .font(.title3)
                                 .padding(.top)
                         } else {
                             List {
-                                ForEach(pets, id: \.self) { pet in
+                                ForEach(petViewModel.pets, id: \.self) { pet in
                                     RoundedRectangle(cornerRadius: 25)
                                         .fill(Color.white)
                                         .frame(width: .infinity, height: 200)
@@ -80,7 +86,6 @@ struct HomeView: View {
                                 .listRowBackground(lightgray)
                                 .padding(.top, 5)
                                 .padding(.bottom, 5)
-                                
                             }
                             .frame(height: 600)
                             .listStyle(GroupedListStyle())
@@ -91,12 +96,16 @@ struct HomeView: View {
                     .navigationBarItems(leading: EditButton())
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            NavigationLink(
-                                destination: AddPetView(pets: $pets),
-                                label: {
-                                    Image(systemName: "plus")
-                                })
+                            Button(action: {presentAddNewPetScreen.toggle()}, label: {
+                                Image(systemName: "plus")
+                            })
                         }
+                    }
+                    .sheet(isPresented: $presentAddNewPetScreen) {
+                        AddPetView()
+                    }
+                    .onAppear() {
+                        self.petViewModel.fetchData()
                     }
                 }
             }
@@ -111,9 +120,12 @@ struct Item: Identifiable {
     var checked: Bool
 }
 
-struct Pet: Identifiable, Hashable {
-    var id = UUID()
+struct Pet: Identifiable, Hashable, Codable {
+    @DocumentID var id: String? = UUID().uuidString
     var name: String
+    enum CodingKeys: String, CodingKey {
+        case name
+    }
 }
 
 struct CardView: View {
@@ -165,8 +177,8 @@ struct CardView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
+//struct HomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeView()
+//    }
+//}

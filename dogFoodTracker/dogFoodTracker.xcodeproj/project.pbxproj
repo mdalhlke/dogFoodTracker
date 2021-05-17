@@ -17,6 +17,10 @@
 		7870CF7C264393840094273A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7870CF7B264393840094273A /* GoogleService-Info.plist */; };
 		7896F39C26439A2400FCBCC4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7896F39B26439A2400FCBCC4 /* HomeView.swift */; };
 		78AB820D2651EC94002423AA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB820C2651EC94002423AA /* ImagePicker.swift */; };
+		78AB820F26530F93002423AA /* PetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB820E26530F93002423AA /* PetsViewModel.swift */; };
+		78AB821126531711002423AA /* CaregiversViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB821026531711002423AA /* CaregiversViewModel.swift */; };
+		78AB821326532088002423AA /* PetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB821226532088002423AA /* PetViewModel.swift */; };
+		78AB821526532376002423AA /* CaregiverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB821426532376002423AA /* CaregiverViewModel.swift */; };
 		78B9AD6F2643A2C300AC1398 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B9AD6E2643A2C300AC1398 /* LoginView.swift */; };
 		78B9AD712643AA5800AC1398 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B9AD702643AA5800AC1398 /* ProfileView.swift */; };
 		78B9AD732643CE8F00AC1398 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B9AD722643CE8F00AC1398 /* DashboardView.swift */; };
@@ -66,6 +70,10 @@
 		7870CF7B264393840094273A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7896F39B26439A2400FCBCC4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		78AB820C2651EC94002423AA /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		78AB820E26530F93002423AA /* PetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsViewModel.swift; sourceTree = "<group>"; };
+		78AB821026531711002423AA /* CaregiversViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaregiversViewModel.swift; sourceTree = "<group>"; };
+		78AB821226532088002423AA /* PetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetViewModel.swift; sourceTree = "<group>"; };
+		78AB821426532376002423AA /* CaregiverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaregiverViewModel.swift; sourceTree = "<group>"; };
 		78B9AD6E2643A2C300AC1398 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		78B9AD702643AA5800AC1398 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		78B9AD722643CE8F00AC1398 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
@@ -149,6 +157,10 @@
 				78B9AD7C2644618D00AC1398 /* EditProfileView.swift */,
 				78B9AD7A264460AF00AC1398 /* AddCareGiverView.swift */,
 				78B9AD722643CE8F00AC1398 /* DashboardView.swift */,
+				78AB820E26530F93002423AA /* PetsViewModel.swift */,
+				78AB821226532088002423AA /* PetViewModel.swift */,
+				78AB821026531711002423AA /* CaregiversViewModel.swift */,
+				78AB821426532376002423AA /* CaregiverViewModel.swift */,
 				7870CF53264391340094273A /* Assets.xcassets */,
 				7870CF58264391340094273A /* Info.plist */,
 				7870CF7B264393840094273A /* GoogleService-Info.plist */,
@@ -496,9 +508,12 @@
 			files = (
 				78B9AD7D2644618D00AC1398 /* EditProfileView.swift in Sources */,
 				78B9AD79264456C000AC1398 /* AddPetView.swift in Sources */,
+				78AB820F26530F93002423AA /* PetsViewModel.swift in Sources */,
 				78B9AD732643CE8F00AC1398 /* DashboardView.swift in Sources */,
 				7896F39C26439A2400FCBCC4 /* HomeView.swift in Sources */,
 				78B9AD7F2644675600AC1398 /* SignUpView.swift in Sources */,
+				78AB821326532088002423AA /* PetViewModel.swift in Sources */,
+				78AB821526532376002423AA /* CaregiverViewModel.swift in Sources */,
 				7870CF52264391330094273A /* ContentView.swift in Sources */,
 				78B9AD712643AA5800AC1398 /* ProfileView.swift in Sources */,
 				78B9AD7B264460AF00AC1398 /* AddCareGiverView.swift in Sources */,
@@ -506,6 +521,7 @@
 				78AB820D2651EC94002423AA /* ImagePicker.swift in Sources */,
 				78BAA8B126450C5800965FEE /* AppleLogin.swift in Sources */,
 				7870CF50264391330094273A /* dogFoodTrackerApp.swift in Sources */,
+				78AB821126531711002423AA /* CaregiversViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

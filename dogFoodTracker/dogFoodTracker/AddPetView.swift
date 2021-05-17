@@ -9,50 +9,50 @@ import SwiftUI
 
 struct AddPetView: View {
     
-    @Binding var pets: [Pet]
-    
-    @State var petName: String = ""
+    @StateObject var viewModel = PetViewModel()
     @State private var showingAlert = false
     
-    
     var body: some View {
-        ZStack {
-            lightgray.edgesIgnoringSafeArea(.vertical)
-            VStack(alignment:.leading) {
-                Text("What is your pets name?")
-                    .font(.title2)
-                    .padding()
-                TextField("Name of Pet", text: $petName)
-                    .padding()
-                    .background(Color.white)
-                    .cornerRadius(5.0)
-                    .padding(.bottom, 20)
-                Button(action: {
-                    showingAlert = true
-                }) {
-                    Text("Submit")
-                        .foregroundColor(.white)
+        NavigationView {
+            ZStack {
+                lightgray.edgesIgnoringSafeArea(.vertical)
+                VStack(alignment:.leading) {
+                    Text("What is your pet's name?")
                         .font(.title2)
-                        .padding(15)
-                        .frame(maxWidth: .infinity)
-                        .background(petName.isEmpty ? Color.gray : Color.orange)
-                        .cornerRadius(50.0)
-                }.alert(isPresented: $showingAlert) {
-                    Alert(
-                        title: Text("'\(petName)' was added"),
-                        dismissButton: .default(
-                            Text("Got it!"),
-                            action: {
-                                pets.append(Pet(name: petName))
-                                petName = ""
-                            }
+                        .padding()
+                    TextField("Name of Pet", text: $viewModel.pet.name)
+                        .keyboardType(.default)
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(5.0)
+                        .padding(.bottom, 20)
+                    Button(action: {
+                        viewModel.save()
+                        showingAlert = true
+                    }) {
+                        Text("Submit")
+                            .foregroundColor(.white)
+                            .font(.title2)
+                            .padding(15)
+                            .frame(maxWidth: .infinity)
+                            .background(viewModel.pet.name.isEmpty ? Color.gray : Color.orange)
+                            .cornerRadius(50.0)
+                    }.alert(isPresented: $showingAlert) {
+                        Alert(
+                            title: Text("'\(viewModel.pet.name)' was added"),
+                            dismissButton: .default(
+                                Text("Got it!"),
+                                action: {
+                                    viewModel.pet.name = ""
+                                }
+                            )
                         )
-                    )
-                }.disabled(petName.isEmpty)
-                Spacer()
-            }
-            .padding()
-        }.navigationTitle("Add a Pet")
+                    }.disabled(viewModel.pet.name.isEmpty)
+                    Spacer()
+                }
+                .padding()
+            }.navigationTitle("Add a Pet")
+        }
     }
 }
 

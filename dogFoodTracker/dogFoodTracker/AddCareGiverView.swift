@@ -8,52 +8,52 @@
 import SwiftUI
 
 struct AddCareGiverView: View {
-    
-    @Binding var careGivers: [CareGiver]
-    
-    @State var careGiverEmail: String = ""
+
+    @StateObject var viewModel = CaregiverViewModel()
     @State private var showingAlert = false
     
     var body: some View {
-        ZStack {
-            lightgray.edgesIgnoringSafeArea(.vertical)
-            VStack(alignment:.leading) {
-                Text("Who do you want to add?")
-                    .font(.title2)
-                Text("Send an email to someone to join your group.")
-                    .padding(.vertical)
-                TextField("Email", text: $careGiverEmail)
-                    .keyboardType(.emailAddress)
-                    .padding()
-                    .background(Color.white)
-                    .cornerRadius(5.0)
-                    .padding(.bottom, 20)
-                Button(action: {
-                    showingAlert = true
-                }) {
-                    Text("Submit")
-                        .foregroundColor(.white)
+        NavigationView {
+            ZStack {
+                lightgray.edgesIgnoringSafeArea(.vertical)
+                VStack(alignment:.leading) {
+                    Text("Who do you want to add?")
                         .font(.title2)
-                        .padding(15)
-                        .frame(maxWidth: .infinity)
-                        .background(careGiverEmail.isEmpty ? Color.gray : Color.orange)
-                        .cornerRadius(50.0)
-                }.alert(isPresented: $showingAlert) {
-                    Alert(
-                        title: Text("Email was sent to '\(careGiverEmail)'"),
-                        dismissButton: .default(
-                            Text("Got it!"),
-                            action: {
-                                careGivers.append(CareGiver(name: careGiverEmail))
-                                //sendEmail
-                                careGiverEmail = ""
-                            }
+                    Text("Notify someone to join your group.")
+                        .padding(.vertical)
+                    TextField("Email", text: $viewModel.caregiver.email)
+                        .keyboardType(.emailAddress)
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(5.0)
+                        .padding(.bottom, 20)
+                    Button(action: {
+                        // you also have to get the name from the user and input that too...
+                        viewModel.save()
+                        showingAlert = true
+                    }) {
+                        Text("Submit")
+                            .foregroundColor(.white)
+                            .font(.title2)
+                            .padding(15)
+                            .frame(maxWidth: .infinity)
+                            .background(viewModel.caregiver.email.isEmpty ? Color.gray : Color.orange)
+                            .cornerRadius(50.0)
+                    }.alert(isPresented: $showingAlert) {
+                        Alert(
+                            title: Text("Notification was sent to '\(viewModel.caregiver.email)'"),
+                            dismissButton: .default(
+                                Text("Got it!"),
+                                action: {
+                                    viewModel.caregiver.email = ""
+                                }
+                            )
                         )
-                    )
-                }.disabled(careGiverEmail.isEmpty)
-                Spacer()
-            }.padding()
-        }.navigationTitle("Add a Care Giver")
+                    }.disabled(viewModel.caregiver.email.isEmpty)
+                    Spacer()
+                }.padding()
+            }.navigationTitle("Add a Caregiver")
+        }
     }
 }
 
