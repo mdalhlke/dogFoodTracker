@@ -29,35 +29,38 @@ struct ProfileView: View {
             ZStack {
                 lightgray.edgesIgnoringSafeArea(.vertical)
                 VStack {
-                    RoundedRectangle(cornerRadius: 0)
-                        .fill(Color.orange)
-                        .frame(width: .infinity, height: 150)
-                        .overlay(
-                            HStack {
-                                Image(systemName: "person.circle.fill")
-                                    .resizable()
-                                    .frame(width: 100.0, height: 100.0)
-                                    .padding()
-                                VStack(alignment:.leading) {
-                                    Text("\(name)")
-                                        .font(.title)
-                                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                        .padding(.bottom, 5)
-                                    NavigationLink(
-                                        destination: EditProfileView(),
-                                        label: {
-                                            Image(systemName: "square.and.pencil")
-                                                .foregroundColor(.white)
-                                            Text("Edit Information")
-                                                .foregroundColor(.white)
-                                                .font(.headline)
-                                        }
-                                    )
-                                }
+                    VStack {
+                        ZStack(alignment: .bottomTrailing) {
+                            Image(systemName: "person.circle.fill")
+                                .resizable()
+                                .frame(width: 100.0, height: 100.0)
+                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                            Button(action: {
+                                print("plus btn")
+                            }, label: {
+                                Image(systemName: "plus")
+                                    .foregroundColor(.white)
+                                    .frame(width: 25, height: 25)
+                                    .background(Color.orange)
+                                    .clipShape(Circle())
+                                    .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                            })
+                        }
+                        Text("\(name)")
+                            .font(.title)
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            .padding(.bottom, 5)
+                        NavigationLink(
+                            destination: EditProfileView(),
+                            label: {
+                                Image(systemName: "square.and.pencil")
+                                    .foregroundColor(.orange)
+                                Text("Edit Information")
+                                    .foregroundColor(.orange)
+                                    .font(.headline)
                             }
                         )
-                        .padding(.top, 20)
-                        .padding(.bottom, 20)
+                    }
                     RoundedRectangle(cornerRadius: 25)
                         .fill(Color.white)
                         .frame(width: .infinity, height: nil)

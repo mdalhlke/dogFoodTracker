@@ -10,8 +10,16 @@ import SwiftUI
 struct HomeView: View {
 
     let lightgray = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0)
+
+//    init() {
+//        UITableView.appearance().backgroundColor = .clear
+//        UITableViewCell.appearance().backgroundColor = .clear
+//        UITableView.appearance().separatorStyle = .none
+//    }
     
     @State private var showingAlert = false
+    @State private var num = [Int]()
+    @State private var curr = 1
 
     @State var items = [
         Item(title: "Breakfast", treat: 0, checked: false),
@@ -33,68 +41,63 @@ struct HomeView: View {
         return datetime
     }
     
+    func removeItems(at offsets: IndexSet) {
+        pets.remove(atOffsets: offsets)
+    }
+    
     var body: some View {
         NavigationView {
             ZStack {
                 lightgray.edgesIgnoringSafeArea(.vertical)
-                ScrollView{
-                VStack(alignment: .leading) {
-                    Text(getDate())
-                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                        .font(.title)
-                    ForEach(pets) { pet in
-                        RoundedRectangle(cornerRadius: 25)
-                            .fill(Color.white)
-                            .frame(width: .infinity, height: 200)
-                            .overlay(
-                                VStack(alignment:.leading) {
-                                    HStack {
-                                        Text("\(pet.name)")
-                                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                                            .padding(.horizontal)
-                                        Spacer()
-                                        Button(action: {
-                                            showingAlert = true
-                                        }) {
-                                            Image(systemName: "minus")
-                                                .padding(.trailing)
-                                        }.alert(isPresented: $showingAlert) {
-                                            Alert(
-                                                title: Text("Are you sure you want to delete this?"),
-                                                primaryButton: .default(
-                                                    Text("Yes"),
-                                                    action: {
-                                                        if let index = pets.firstIndex(where: {$0.name == pet.name}) {
-                                                            pets.remove(at: index + 1)
-                                                        }
-                                                    }
-                                                ),
-                                                secondaryButton: .destructive(
-                                                    Text("Cancel")
-                                                    
-                                                )
-                                            )
-                                        }
-                                    }
-                                    ForEach(items) { item in
-                                        CardView(item: item)
-                                    }
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        Text(getDate())
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            .font(.title)
+                        if pets.isEmpty {
+                            Text("Add a pet by clicking the + button in the top right corner.")
+                                .font(.title3)
+                                .padding(.top)
+                        } else {
+                            List {
+                                ForEach(pets, id: \.self) { pet in
+                                    RoundedRectangle(cornerRadius: 25)
+                                        .fill(Color.white)
+                                        .frame(width: .infinity, height: 200)
+                                        .overlay(
+                                            VStack(alignment:.leading) {
+                                                Text("\(pet.name)")
+                                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                                                    .padding(.horizontal)
+                                                ForEach(items) { item in
+                                                    CardView(item: item)
+                                                }
+                                            }
+                                      )
                                 }
-                            ).padding(.bottom)
+                                .onDelete(perform: self.removeItems)
+                                .listRowBackground(lightgray)
+                                .padding(.top, 5)
+                                .padding(.bottom, 5)
+                                
+                            }
+                            .frame(height: 600)
+                            .listStyle(GroupedListStyle())
+                        }
                     }
-                }
-                .padding()
-                .navigationBarTitle("Home")
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink(
-                            destination: AddPetView(pets: $pets),
-                            label: {
-                                Image(systemName: "plus")
-                            })
+                    .padding()
+                    .navigationBarTitle("Home")
+                    .navigationBarItems(leading: EditButton())
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            NavigationLink(
+                                destination: AddPetView(pets: $pets),
+                                label: {
+                                    Image(systemName: "plus")
+                                })
+                        }
                     }
-                } 
                 }
             }
         }.accentColor(.orange)
@@ -108,7 +111,7 @@ struct Item: Identifiable {
     var checked: Bool
 }
 
-struct Pet: Identifiable {
+struct Pet: Identifiable, Hashable {
     var id = UUID()
     var name: String
 }

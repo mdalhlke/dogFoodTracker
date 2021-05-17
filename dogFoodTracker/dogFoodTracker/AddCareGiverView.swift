@@ -9,8 +9,6 @@ import SwiftUI
 
 struct AddCareGiverView: View {
     
-    let grayOrange = Color(red: 204.0/255.0, green: 119.0/255.0, blue: 0.0/255.0)
-    
     @Binding var careGivers: [CareGiver]
     
     @State var careGiverEmail: String = ""
@@ -38,7 +36,7 @@ struct AddCareGiverView: View {
                         .font(.title2)
                         .padding(15)
                         .frame(maxWidth: .infinity)
-                        .background(careGiverEmail.isEmpty ? grayOrange : Color.orange)
+                        .background(careGiverEmail.isEmpty ? Color.gray : Color.orange)
                         .cornerRadius(50.0)
                 }.alert(isPresented: $showingAlert) {
                     Alert(

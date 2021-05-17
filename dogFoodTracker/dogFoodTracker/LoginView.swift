@@ -42,7 +42,7 @@ struct LoginView: View {
                     .padding(.bottom, 20)
                 HStack {
                     GoogleSignView().frame(height:55)
-                    SignInWithAppleButton { (request) in
+                    /*SignInWithAppleButton { (request) in
                         loginData.nonce = randomNonceString()
                         request.requestedScopes = [.email, .fullName]
                         request.nonce = sha256(loginData.nonce)
@@ -60,8 +60,8 @@ struct LoginView: View {
                         }
                     }
                     .signInWithAppleButtonStyle(.black)
-                    .frame(height: 55)
-                    //.clipShape(Capsule())
+                    .frame(height: 45)
+                    //.clipShape(Capsule())*/
                 }
                 Text("OR").padding()
                 TextField("Email", text: $user)
@@ -155,6 +155,7 @@ struct GoogleSignView: UIViewRepresentable {
     func makeUIView(context: UIViewRepresentableContext<GoogleSignView>) -> GIDSignInButton {
         let button = GIDSignInButton()
         button.colorScheme = .dark
+        button.style = .wide
         GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.last?.rootViewController
         return button
     }

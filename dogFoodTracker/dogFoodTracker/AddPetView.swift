@@ -9,8 +9,6 @@ import SwiftUI
 
 struct AddPetView: View {
     
-    let grayOrange = Color(red: 204.0/255.0, green: 119.0/255.0, blue: 0.0/255.0)
-
     @Binding var pets: [Pet]
     
     @State var petName: String = ""
@@ -37,7 +35,7 @@ struct AddPetView: View {
                         .font(.title2)
                         .padding(15)
                         .frame(maxWidth: .infinity)
-                        .background(petName.isEmpty ? grayOrange : Color.orange)
+                        .background(petName.isEmpty ? Color.gray : Color.orange)
                         .cornerRadius(50.0)
                 }.alert(isPresented: $showingAlert) {
                     Alert(
@@ -60,6 +58,6 @@ struct AddPetView: View {
 
 //struct AddPetView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        AddPetView()
+//        AddPetView(pets: [Pet(name: "Koda"), Pet(name: "Teddy")])
 //    }
 //}
