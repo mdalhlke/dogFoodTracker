@@ -32,11 +32,9 @@ struct HomeView: View {
 //    ]
     
     @ObservedObject private var petViewModel = PetsViewModel()
-    
-    @State private var presentAddNewPetScreen = false
-    
     @StateObject var viewModel = PetViewModel()
-    
+    @State private var presentAddNewPetScreen = false
+        
     func getDate() -> String {
         let now = Date()
         let formatter = DateFormatter()
@@ -47,8 +45,11 @@ struct HomeView: View {
     }
     
     func removeItems(at offsets: IndexSet) {
-        petViewModel.pets.remove(atOffsets: offsets)
-        //viewModel.delete()
+       // petViewModel.pets.remove(atOffsets: offsets)
+        offsets.forEach { index in
+            let pet = petViewModel.pets[index]
+            viewModel.delete(id: pet.id!)
+        }
     }
     
     var body: some View {
@@ -124,6 +125,7 @@ struct Pet: Identifiable, Hashable, Codable {
     @DocumentID var id: String? = UUID().uuidString
     var name: String
     enum CodingKeys: String, CodingKey {
+        case id
         case name
     }
 }

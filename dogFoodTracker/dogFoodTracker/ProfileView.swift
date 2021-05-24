@@ -173,6 +173,7 @@ struct CareGiver: Identifiable, Codable {
     var name: String
     var email: String
     enum CodingKeys: String, CodingKey {
+        case id
         case name
         case email
     }

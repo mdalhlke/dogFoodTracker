@@ -10,6 +10,7 @@ import Firebase
 
 class PetViewModel: ObservableObject {
     @Published var pet: Pet = Pet(name: "")
+    private var petViewModel = PetsViewModel()
     
     private var db = Firestore.firestore()
     
@@ -25,17 +26,14 @@ class PetViewModel: ObservableObject {
         addPet(pet: pet)
     }
     
-    func deletePet() {
-        if let documentId = pet.id {
-            db.collection("pets").document(documentId).delete() { error in
-                if let error = error {
-                    print(error.localizedDescription)
-                }
+    func delete(id: String) {
+        db.collection("pets").document(id).delete() { error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                self.petViewModel.fetchData()
+                print("Successfully deleted")
             }
         }
-    }
-    
-    func delete() {
-        self.deletePet()
     }
 }
