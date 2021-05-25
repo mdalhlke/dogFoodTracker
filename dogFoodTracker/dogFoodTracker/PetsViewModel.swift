@@ -13,15 +13,7 @@ class PetsViewModel: ObservableObject {
     @Published var pets = [Pet]()
     
     private var db = Firestore.firestore()
-    
-//    func addPet(pet: Pet) {
-//        do {
-//            let _ = try db.collection("ppets").addDocument(from: pet)
-//        } catch {
-//            print(error)
-//        }
-//    }
-    
+
     func fetchData() {
         db.collection("pets").addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
