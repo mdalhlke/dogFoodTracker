@@ -95,7 +95,7 @@ struct ProfileView: View {
                             }
                         )
                     }
-                    RoundedRectangle(cornerRadius: 25)
+                    RoundedRectangle(cornerRadius: 25.0)
                         .fill(Color.white)
                         .frame(width: .infinity, height: nil)
                         .overlay(
@@ -103,8 +103,8 @@ struct ProfileView: View {
                                 Text("Pets")
                                     .font(.largeTitle)
                                     .fontWeight(.bold)
-                                    .frame(width: 370, height: nil, alignment: .topLeading)
-                                    .padding(.vertical)
+                                    .frame(width: 340, height: nil, alignment: .topLeading)
+                                    .padding(.vertical, 10.0)
                                 ForEach(petViewModel.pets) { pet in
                                     Text("\(pet.name)")
                                         .font(.title2)
@@ -113,7 +113,7 @@ struct ProfileView: View {
                             }.padding(.leading, 20)
                         ).padding()
                     
-                    RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                    RoundedRectangle(cornerRadius: 25.0)
                         .fill(Color.white)
                         .frame(width: .infinity, height: nil)
                         .overlay(
@@ -123,7 +123,7 @@ struct ProfileView: View {
                                         .font(.largeTitle)
                                         .fontWeight(.bold)
                                         .frame(width: 300, height: nil, alignment: .topLeading)
-                                        .padding(.vertical)
+                                        .padding(.vertical, 10.0)
 //                                    NavigationLink(
 //                                        destination: AddCareGiverView(),
 //                                        label: {
@@ -179,8 +179,8 @@ struct CareGiver: Identifiable, Codable {
     }
 }
 
-//struct ProfileView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProfileView()
-//    }
-//}
+struct ProfileView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProfileView()
+    }
+}

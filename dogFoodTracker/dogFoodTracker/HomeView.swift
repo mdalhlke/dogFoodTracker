@@ -19,12 +19,6 @@ struct HomeView: View {
 //    }
     
     @State private var showingAlert = false
-
-    @State var items = [
-        Item(title: "Breakfast", treat: 0, checked: false),
-        Item(title: "Dinner", treat: 0, checked: false),
-        Item(title: "Treats", treat: 0, checked: false)
-    ]
     
 //    @State var pets = [
 //        Pet(name: "Koda"),
@@ -34,6 +28,12 @@ struct HomeView: View {
     @ObservedObject private var petViewModel = PetsViewModel()
     @StateObject var viewModel = PetViewModel()
     @State private var presentAddNewPetScreen = false
+    
+//    @State var items = [
+//        Item(title: "Breakfast", treat: 0, checked: PetViewModel().pet.breakfast),
+//        Item(title: "Dinner", treat: 0, checked: PetViewModel().pet.dinner),
+//        Item(title: "Treats", treat: PetViewModel().pet.treats, checked: false)
+//    ]
         
     func getDate() -> String {
         let now = Date()
@@ -72,14 +72,8 @@ struct HomeView: View {
                                         .fill(Color.white)
                                         .frame(width: .infinity, height: 200)
                                         .overlay(
-                                            VStack(alignment:.leading) {
-                                                Text("\(pet.name)")
-                                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                                                    .padding(.horizontal)
-                                                ForEach(items) { item in
-                                                    CardView(item: item)
-                                                }
+                                            ZStack {
+                                                CardView(pet: pet)
                                             }
                                       )
                                 }
@@ -114,73 +108,108 @@ struct HomeView: View {
     }
 }
 
-struct Item: Identifiable {
-    var id = UUID()
-    var title: String
-    var treat: Int
-    var checked: Bool
-}
+//struct Item: Identifiable {
+//    var id = UUID()
+//    var title: String
+//    var treat: Int
+//    var checked: Bool
+//}
 
 struct Pet: Identifiable, Hashable, Codable {
     @DocumentID var id: String? = UUID().uuidString
     var name: String
+    var breakfast: Bool
+    var dinner: Bool
+    var treats: Int
     enum CodingKeys: String, CodingKey {
         case id
         case name
+        case breakfast
+        case dinner
+        case treats
     }
 }
 
 struct CardView: View {
-    @State var item: Item
+    @StateObject var viewModel = PetViewModel()
+    @State var pet: Pet
     var body: some View {
-        HStack {
-            Text(item.title)
-                .fontWeight(.semibold)
-                .font(.title2)
-            Spacer()
-            ZStack {
-                if (item.title == "Treats") {
-                    HStack {
-                        Button(action: {
-                            print("counterUp")
-                            item.treat += 1
-                        }, label: {
-                            Image(systemName: "arrow.up")
-                        })
-                        Text(String(item.treat))
-                            .fontWeight(.semibold)
-                            .font(.title2)
-                        Button(action: {
-                            print("counterDown")
-                            if (item.treat != 0) {
-                                item.treat -= 1
-                            }
-                        }, label: {
-                            Image(systemName: "arrow.down")
-                        })
-                    }
+        VStack(alignment:.leading) {
+            Text(pet.name)
+                .fontWeight(.bold)
+                .font(.title)
+                .padding(.vertical, 2.0)
+            HStack {
+                Text("Breakfast")
+                    .fontWeight(.semibold)
+                    .font(.title)
+                Spacer()
+                if pet.breakfast {
+                    Image(systemName: "checkmark.circle.fill")
+                        .font(.system(size: 25))
+                        .foregroundColor(Color.orange)
                 } else {
-                    Circle()
-                        .stroke(item.checked ? Color.orange : Color.gray, lineWidth: 1)
-                        .frame(width: 25, height: 25)
-                    if item.checked {
-                        Image(systemName: "checkmark.circle.fill")
-                            .font(.system(size: 25))
-                            .foregroundColor(Color.orange)
-                    }
+                    Image(systemName: "circle")
+                        .font(.system(size: 25))
+                        .foregroundColor(Color.gray)
                 }
+            }.onTapGesture(perform: {
+                //pet.breakfast.toggle()
+                viewModel.updateBB(id: pet.id!)
+                //pet.breakfast.toggle()
+            })
+            .padding(.vertical, 2.0)
+            HStack {
+                Text("Dinner")
+                    .fontWeight(.semibold)
+                    .font(.title)
+                Spacer()
+                if pet.dinner {
+                    Image(systemName: "checkmark.circle.fill")
+                        .font(.system(size: 25))
+                        .foregroundColor(Color.orange)
+                } else {
+                    Image(systemName: "circle")
+                        .font(.system(size: 25))
+                        .foregroundColor(Color.gray)
+                }
+            }.onTapGesture(perform: {
+                //pet.dinner.toggle()
+                viewModel.updateDB(id: pet.id!)
+            })
+            .padding(.vertical, 2.0)
+            HStack {
+                Text("Treats")
+                    .fontWeight(.semibold)
+                    .font(.title)
+                Spacer()
+                Button {
+                    print("up")
+                } label: {
+                    Image(systemName: "arrow.up")
+                }.onTapGesture(perform: {
+                    //pet.treats += 1
+                    viewModel.updateTreatsUp(id: pet.id!)
+                })
+                Text(String(pet.treats))
+                    .fontWeight(.semibold)
+                    .font(.title2)
+                Button {
+                    print("down")
+                } label: {
+                    Image(systemName: "arrow.down")
+                }.onTapGesture(perform: {
+                    viewModel.updateTreatsDown(id: pet.id!)
+                })
             }
         }
         .padding(.horizontal)
         .contentShape(Rectangle())
-        .onTapGesture(perform: {
-            item.checked.toggle()
-        })
     }
 }
 
-//struct HomeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HomeView()
-//    }
-//}
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
+    }
+}

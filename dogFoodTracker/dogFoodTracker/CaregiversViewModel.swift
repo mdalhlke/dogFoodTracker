@@ -13,15 +13,7 @@ class CaregiversViewModel: ObservableObject {
     @Published var caregivers = [CareGiver]()
     
     private var db = Firestore.firestore()
-    
-//    func addCaregiver(caregiver: CareGiver) {
-//        do {
-//            let _ = try db.collection("caregivers").addDocument(from: caregiver)
-//        } catch {
-//            print(error)
-//        }
-//    }
-    
+
     func fetchData() {
         db.collection("caregivers").addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
