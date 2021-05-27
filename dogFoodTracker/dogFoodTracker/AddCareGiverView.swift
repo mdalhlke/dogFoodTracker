@@ -6,11 +6,29 @@
 //
 
 import SwiftUI
+import MessageUI
 
 struct AddCareGiverView: View {
 
     @StateObject var viewModel = CaregiverViewModel()
     @State private var showingAlert = false
+    
+    func sendEmail(address: String) {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            //mail.mailComposeDelegate = self
+            mail.setToRecipients([address])
+            mail.setMessageBody("<h1>Kibble</h1><br><p>___ would like you to join as a caregiver.</p>", isHTML: true)
+
+            //present(mail, animated: true)
+        } else {
+            // show failure alert
+        }
+    }
+
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
     
     var body: some View {
         NavigationView {
@@ -30,6 +48,7 @@ struct AddCareGiverView: View {
                     Button(action: {
                         // you also have to get the name from the user and input that too...
                         viewModel.save()
+                        sendEmail(address: viewModel.caregiver.email)
                         showingAlert = true
                     }) {
                         Text("Submit")
@@ -57,8 +76,8 @@ struct AddCareGiverView: View {
     }
 }
 
-//struct AddCareGiverView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AddCareGiverView()
-//    }
-//}
+struct AddCareGiverView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddCareGiverView()
+    }
+}

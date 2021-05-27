@@ -14,18 +14,20 @@ struct ProfileView: View {
     
     //@Binding var pets: Pet
     //@Binding var items: Item
-    @AppStorage("log_status") var log_status = false
+    @AppStorage("log_status") var log_status = false 
     
     @State var showActionSheet = false
     @State var showImagePicker = false
     @State var sourceType: UIImagePickerController.SourceType = .camera
     @State var image: UIImage?
-    
-    @State var name: String = "Maya"
+    //@State var name: String = "Enter Your Name Here"
+    //@State var name: String = Auth.auth().currentUser?.displayName ?? "Maya"
+   // @State var name2: String = GIDSignIn.sharedInstance()?.currentUser.profile.name ?? "Maya"
 //    @State var pets = [
 //        Pet(name: "Koda"),
 //        Pet(name: "Teddy")
 //    ]
+    private let user = GIDSignIn.sharedInstance().currentUser
     @ObservedObject private var petViewModel = PetsViewModel()
 //    @State var caregivers = [
 //        CareGiver(name: "Doug", email: "dougdahlke@yahoo.com"),
@@ -34,6 +36,26 @@ struct ProfileView: View {
     @ObservedObject private var caregiverViewModel = CaregiversViewModel()
     
     @State private var presentAddNewPetScreen = false
+    
+    func getName() -> String {
+        var name: String = "Enter Your Name Here"
+        if (Auth.auth().currentUser?.displayName != nil) {
+            name = (Auth.auth().currentUser?.displayName)!
+            print(name)
+        } else if (user?.profile.name != nil) {
+            name = (user?.profile.name)!
+            print(name)
+        }
+        return name
+    }
+    
+//    func getProfilePic() {
+//        let user: GIDGoogleUser = GIDSignIn.sharedInstance()!.currentUser
+//        if user.profile.hasImage {
+//            let userDP = user.profile.imageURL(withDimension: 200).absoluteString
+//            image = UIImage(systemName: userDP)
+//        }
+//    }
 
     
     var body: some View {
@@ -43,17 +65,21 @@ struct ProfileView: View {
                 VStack {
                     VStack {
                         ZStack(alignment: .bottomTrailing) {
-                            if image != nil {
-                                Image(uiImage: image!)
-                                    .resizable()
-                                    .frame(width: 100.0, height: 100.0)
-                                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                            } else {
-                                Image(systemName: "person.circle.fill")
-                                    .resizable()
-                                    .frame(width: 100.0, height: 100.0)
-                                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                            }
+                            NetworkImage(url: user?.profile.imageURL(withDimension: 200))
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 100, height: 100, alignment: .center)
+                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+//                            if image != nil {
+//                                Image(uiImage: image!)
+//                                    .resizable()
+//                                    .frame(width: 100.0, height: 100.0)
+//                                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+//                            } else {
+//                                Image(systemName: "person.circle.fill")
+//                                    .resizable()
+//                                    .frame(width: 100.0, height: 100.0)
+//                                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+//                            }
                             Button(action: {
                                 self.showActionSheet = true
                             }) {
@@ -80,7 +106,7 @@ struct ProfileView: View {
                                 imagePicker(image: self.$image, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
                             }
                         }
-                        Text("\(name)")
+                        Text(getName())
                             .font(.title)
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                             .padding(.bottom, 5)
@@ -177,6 +203,24 @@ struct CareGiver: Identifiable, Codable {
         case name
         case email
     }
+}
+
+struct NetworkImage: View {
+  let url: URL?
+
+  var body: some View {
+    if let url = url,
+       let data = try? Data(contentsOf: url),
+       let uiImage = UIImage(data: data) {
+      Image(uiImage: uiImage)
+        .resizable()
+        .aspectRatio(contentMode: .fit)
+    } else {
+      Image(systemName: "person.circle.fill")
+        .resizable()
+        .aspectRatio(contentMode: .fit)
+    }
+  }
 }
 
 struct ProfileView_Previews: PreviewProvider {
